@@ -1,6 +1,7 @@
 'use strict';
 require('dotenv').config();
 const express = require('express');
+const pug = require('pug');
 const myDB = require('./connection');
 const fccTesting = require('./freeCodeCamp/fcctesting.js');
 
@@ -20,9 +21,6 @@ app.route('/').get((req, res) => {
   res.render('index'); 
 });
 
-module.exports = app; // For testing purposes
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log('Listening on port ' + PORT);
+app.listen(process.env.PORT || 3000, () => {
+  console.log("Listening on port" + process.env.PORT);
 });
